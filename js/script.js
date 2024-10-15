@@ -4,8 +4,9 @@ const specialChars = ["'",'`',"!","@","#","$","%","^","&","*","(",")","_","+","-
 passwdInputEl.addEventListener('selectionchange', () => {
     // console.log(passwdInputEl.value)
     checkStringLength(passwdInputEl.value, 9, document.querySelector('.requirements > .no_char'));
-    checkIfUpperCase(passwdInputEl.value, document.querySelector('.requirements > .uppercase'))
-    checkIfNumber(passwdInputEl.value, document.querySelector('.requirements > .number'))
+    checkIfUpperCase(passwdInputEl.value, document.querySelector('.requirements > .uppercase'));
+    checkIfNumber(passwdInputEl.value, document.querySelector('.requirements > .number'));
+    checkIfSymbol(passwdInputEl.value, document.querySelector('.requirements > .special'));
 })
 
 // --> function to check the input value length
@@ -68,6 +69,31 @@ function checkIfNumber(value, requirementEl){
     if(isNumber === true && !requirementEl.classList.contains('checked')){
         requirementEl.classList.add('checked');
     } else if(isNumber === false && requirementEl.classList.contains('checked')){
+        requirementEl.classList.remove('checked');
+    }
+
+}
+
+// --> function to check if a character is a special character
+/**
+ * 
+ * @param {*} value  the input value whose characters needs to be checked
+ * @param {*} requirementEl the element that show the requirement to meet
+ */
+function checkIfSymbol(value, requirementEl){
+    value = value.trim();
+    let char;
+    let isSymbol = false;
+    for(let i= 0; i < value.length; i++){
+        char = value.charAt(i);
+        if (specialChars.includes(char)){
+            isSymbol = true;
+        }
+    }
+
+    if(isSymbol === true && !requirementEl.classList.contains('checked')){
+        requirementEl.classList.add('checked');
+    } else if(isSymbol === false && requirementEl.classList.contains('checked')){
         requirementEl.classList.remove('checked');
     }
 
