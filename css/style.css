@@ -39,16 +39,16 @@ input#password-input{
     margin-bottom: 1rem;
 }
 
-.unchecked {
+.requirements li {
     color: rgb(66, 63, 63);
 }
 
-li.unchecked::before{
+.requirements li::before{
     content: '\2717';
     margin-right: .4rem;
 }
 
-.checked {
+li.checked {
     color: green;
 }
 
