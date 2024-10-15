@@ -6,4 +6,53 @@
 
 body {
     font-family: sans-serif;
+    background-color:#100256;
+}
+
+ul {
+    list-style-type: none;
+}
+
+main{
+    padding-top: 3rem;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+main section {
+    background-color: #f1f1f1;;
+    padding: 1rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+input#password-input{
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.unchecked {
+    color: rgb(66, 63, 63);
+}
+
+li.unchecked::before{
+    content: '\2717';
+    margin-right: .4rem;
+}
+
+.checked {
+    color: green;
+}
+
+li.checked::before{
+    content: '\2713';
+    margin-right: .4rem;
 }
