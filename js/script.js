@@ -131,7 +131,3 @@ function checkIfSymbol(value, requirementEl){
     }
 
 }
-
-function countRequirementsMet(){
-
-}

@@ -13,6 +13,7 @@ I requisiti della password sono elencati sotto al campo di input.
 I requisiti si colorano di verde e visualizzano un check ✔️ man mano che vengono soddisfatti.
 Questa soluzione fornisce immediatamente un feedback visivo all’utente durante la digitazione dei caratteri.
 
+
 ## TECNOLOGIE
 - HTML
 - CSS
