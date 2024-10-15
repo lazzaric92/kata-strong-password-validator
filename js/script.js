@@ -1,12 +1,45 @@
 const passwdInputEl = document.getElementById('password-input');
+const progressBarEl = document.querySelector('div.progress-bar');
+
+// # list of special characters
 const specialChars = ["'",'`',"!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}",";","\"",":","|",".","<",">","\\","/","?","~"];
 
+
 passwdInputEl.addEventListener('selectionchange', () => {
-    // console.log(passwdInputEl.value)
+    // # functions to check the input value characters
     checkStringLength(passwdInputEl.value, 9, document.querySelector('.requirements > .no_char'));
     checkIfUpperCase(passwdInputEl.value, document.querySelector('.requirements > .uppercase'));
     checkIfNumber(passwdInputEl.value, document.querySelector('.requirements > .number'));
     checkIfSymbol(passwdInputEl.value, document.querySelector('.requirements > .special'));
+
+    // # number of requirements met
+    const checkedEls = document.querySelectorAll('.requirements > li.checked');
+    // console.log(checkedEls.length);
+
+    switch (checkedEls.length){
+        case 1:
+            progressBarEl.classList.add('w-25');
+            progressBarEl.classList.remove('w-50');
+            break;
+        case 2:
+            progressBarEl.classList.remove('w-25');
+            progressBarEl.classList.add('w-50');
+            progressBarEl.classList.remove('w-75');
+            break;
+        case 3:
+            progressBarEl.classList.remove('w-50');
+            progressBarEl.classList.add('w-75');
+            progressBarEl.classList.remove('w-100');
+            break;
+        case 4:
+            progressBarEl.classList.remove('w-75');
+            progressBarEl.classList.add('w-100');
+            break;
+        default:
+            if(progressBarEl.classList.contains('w-25')){
+                progressBarEl.classList.remove('w-25');
+            }
+    }
 })
 
 // --> function to check the input value length
@@ -96,5 +129,9 @@ function checkIfSymbol(value, requirementEl){
     } else if(isSymbol === false && requirementEl.classList.contains('checked')){
         requirementEl.classList.remove('checked');
     }
+
+}
+
+function countRequirementsMet(){
 
 }
